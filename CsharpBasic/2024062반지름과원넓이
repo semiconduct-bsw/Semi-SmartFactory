@@ -4,11 +4,17 @@ namespace _20240626Core3
     {
         static void Main(string[] args)
         {
-            double radius = 2.5;
+            // 1. 변수선언 및 초기화
+            Console.WriteLine("반지름 값을 입력하세요.");
+            double radius = double.Parse(Console.ReadLine());
+
             Console.WriteLine(Math.PI);
 
+            // 2. 로직
             double area = Math.PI * radius * radius;
-            Console.WriteLine($"{area:F2}");
+
+            // 3. 출력
+            Console.WriteLine($"넓이는 {area:F2}입니다.");
         }
     }
 }
