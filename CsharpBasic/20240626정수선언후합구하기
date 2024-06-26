@@ -1,0 +1,20 @@
+namespace _20240626_Core2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 두 정수 value1, value2 입력 받아 그 합을 출력하라
+            Console.Write("value1 값을 입력해주세요 : ");
+            int value1;
+            value1 = Int32.Parse(Console.ReadLine());
+            Console.Write("value2 값을 입력해주세요 : ");
+            int value2;
+            value2 = Int32.Parse(Console.ReadLine());
+
+            int result = value1 + value2;
+
+            Console.WriteLine(result);
+        }
+    }
+}
