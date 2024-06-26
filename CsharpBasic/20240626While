@@ -1,0 +1,15 @@
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        // while(조건)
+        int i = 0;
+
+        while (i < 100)
+        {
+            Console.Write($" {i} ");
+
+            i++;
+        }
+    }
+}
