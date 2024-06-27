@@ -1,0 +1,22 @@
+        static void Main(string[] args)
+        {
+            Console.Write("50 이하의 정수를 입력하세요 : ");
+            int num = Int32.Parse(Console.ReadLine());
+
+            for (int i = num; i > 0 ; i--)
+            {
+                for (int j = 0; j < num; j++)
+                {
+                    if (i-1 < j)
+                    {
+                        Console.Write(" ");
+                    }
+                    else
+                    {
+                        Console.Write("*");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    }
