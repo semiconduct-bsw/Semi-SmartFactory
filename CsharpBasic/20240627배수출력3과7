@@ -1,0 +1,26 @@
+internal class Program
+
+{
+    static void Main(string[] args)
+
+    {
+        // 1부터 100까지 3의 배수와 7의 배수만 출력하기
+        for (int i=1; i<=100; i++)
+        {
+            if (i % 3 == 0)
+            {
+                Console.Write($"{i} ");
+
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 7 == 0)
+            {
+                Console.Write($"{i} ");
+            }
+        }
+    }
+}
