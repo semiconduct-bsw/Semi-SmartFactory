@@ -1,0 +1,16 @@
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 1단계 : 구구단 코드 다시 작성
+            // 2단계 : 9단부터 2단까지 역순으로 출력
+            for (int i = 9; i > 1; i--)
+            {
+                for (int j = 1; j < 10; j++)
+                {
+                    Console.WriteLine($"{i} * {j} = {i * j}");
+                }
+            }
+        }
+    }
+}
