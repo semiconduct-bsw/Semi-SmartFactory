@@ -1,0 +1,29 @@
+        static void Main(string[] args)
+        {
+            Console.WriteLine("성적을 입력하면 학점을 출력합니다.");
+            Console.Write("점수 : ");
+            int exam = int.Parse(Console.ReadLine());
+
+            if ((exam >= 90) && (exam <= 100))
+            {
+                Console.WriteLine("A 학점입니다.");
+            }
+            if ((exam >= 80) && (exam <90))
+            {
+                Console.WriteLine("B 학점입니다.");
+            }
+            if ((exam >= 70) && (exam < 80))
+            {
+                Console.WriteLine("C 학점입니다.");
+            }
+            if ((exam >= 60) && (exam < 70))
+            {
+                Console.WriteLine("D 학점입니다.");
+            }
+            if (exam <= 59)
+            {
+                Console.WriteLine("F 학점입니다.");
+            }
+        }
+    }
+}
