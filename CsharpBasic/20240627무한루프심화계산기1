@@ -1,0 +1,70 @@
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("첫 번째 숫자를 입력하세요 : ");
+        int value1 = Int32.Parse(Console.ReadLine());
+
+        Console.Write("연산자 (+, -, *, /)를 입력하세요 : ");
+        string op = Console.ReadLine();
+
+        Console.Write("두 번째 숫자를 입력하세요 : ");
+        int value2 = Int32.Parse(Console.ReadLine());
+
+        switch (op)
+        {
+            case "+":
+                Console.WriteLine($"결과는 {value1 + value2}입니다.");
+                break;
+            case "-":
+                Console.WriteLine($"결과는 {value1 - value2}입니다.");
+                break;
+            case "*":
+                Console.WriteLine($"결과는 {value1 * value2}입니다.");
+                break;
+            case "/":
+                Console.WriteLine($"결과는 {(double)value1 / value2}입니다.");
+                break;
+            default:
+                Console.WriteLine("잘못 입력하셨습니다.");
+                break;
+        }
+
+        while (true)
+        {
+            Console.Write("계산을 계속 하시겠습니까?(y/n) : ");
+            string yn = Console.ReadLine();
+            if (yn == "n") break;
+            if (yn == "y")
+            {
+                Console.Write("첫 번째 숫자를 입력하세요 : ");
+                int value3 = Int32.Parse(Console.ReadLine());
+
+                Console.Write("연산자 (+, -, *, /)를 입력하세요 : ");
+                string op2 = Console.ReadLine();
+
+                Console.Write("두 번째 숫자를 입력하세요 : ");
+                int value4 = Int32.Parse(Console.ReadLine());
+
+                switch (op2)
+                {
+                    case "+":
+                        Console.WriteLine($"결과는 {value3 + value4}입니다.");
+                        break;
+                    case "-":
+                        Console.WriteLine($"결과는 {value3 - value4}입니다.");
+                        break;
+                    case "*":
+                        Console.WriteLine($"결과는 {value3 * value4}입니다.");
+                        break;
+                    case "/":
+                        Console.WriteLine($"결과는 {(double)value3 / value4}입니다.");
+                        break;
+                    default:
+                        Console.WriteLine("잘못 입력하셨습니다.");
+                        break;
+                }
+            }
+        }
+    }
+}
