@@ -1,0 +1,15 @@
+        static void Main(string[] args)
+        {
+            // 크기가 3인 정수형 배열 arr를 선언하고
+            // 값은 'Z', 'Y', 'X''
+            char[] arr = new char[3];
+            arr[0] = 'X';
+            arr[1] = 'Y';
+            arr[2] = 'Z';
+
+            for (int i = 2; i >= 0; i--)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+    }
