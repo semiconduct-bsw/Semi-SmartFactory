@@ -1,0 +1,16 @@
+        static void Main(string[] args)
+        {
+            int[] score = new int[3];
+            int total = 0;
+
+            // 성적 입력구
+            for (int i = 0; i < score.Length; i++)
+            {
+                score[0] = Int32.Parse(Console.ReadLine());
+                total += score[i];
+            }
+            double avg = total / score.Length;
+            //출력
+            Console.WriteLine($"총점 : {total}");
+            Console.WriteLine($"평균 : {avg:F2}");
+        }
