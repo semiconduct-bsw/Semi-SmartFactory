@@ -1,0 +1,12 @@
+        static void Main(string[] args)
+        {
+            string str = Console.ReadLine();
+
+            string outText = "";
+
+            for (int i= str.Length -1; i >=0; i--)
+            {
+                outText += str[i];
+            }
+            Console.WriteLine(outText);
+        }
