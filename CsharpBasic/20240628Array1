@@ -1,0 +1,24 @@
+        static void Main(string[] args)
+        {
+            // arr = 배열의 이름
+            // 배열의 선언
+            int[] arr = new int[5];
+
+            /* 배열의 사용
+            arr[0] = 1;
+            arr[1] = 2;
+            arr[2] = 3;
+            arr[3] = 4;
+            arr[4] = 5; */
+
+            for (int i = 0; i < 5; i++)
+            {
+                // 1, 2, 3, 4, 5가 나오도록 i+1로 표현
+                arr[i] = i+1;
+            }
+            for (int i = 0; i <5; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+        
