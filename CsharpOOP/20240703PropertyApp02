@@ -1,0 +1,51 @@
+namespace _20240703_Property02
+{
+    class Person
+    {
+        // 멤버변수
+        private string name;
+        private int age;
+
+        // Property
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if (value >= 0)
+                {
+                    age = value;
+                }
+                else
+                {
+                    Console.WriteLine("나이는 0살보다 어릴 수 없습니다.");
+                }
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person paul = new Person();
+            paul.Name = "파울이";
+            paul.Age = 23;
+
+            Console.WriteLine($"이름 : {paul.Name}, 나이 : {paul.Age}");
+        }
+    }
+}
