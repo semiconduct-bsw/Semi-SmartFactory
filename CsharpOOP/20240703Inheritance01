@@ -1,0 +1,24 @@
+namespace _20240703_OOPApp01
+{
+    class Computer
+    {
+        public void Run()
+        {
+            Console.WriteLine("컴퓨터를 구동합니다.");
+        }
+    }
+    class NoteBook : Computer
+    {
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Computer computer = new Computer();
+            computer.Run();
+            NoteBook notebook = new NoteBook();
+            notebook.Run();
+        }
+    }
+}
