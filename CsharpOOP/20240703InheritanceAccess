@@ -1,0 +1,56 @@
+using System.Globalization;
+
+namespace _20240703_OOPApp04
+{
+    abstract class Car
+    {
+        public abstract void Run(); // 추상 메소드 abstract Method
+    }
+    class Bus : Car
+    {
+        public override void Run()
+        {
+            Console.WriteLine("버스가 달린다.");
+        }
+    }
+    class Taxi : Car
+    {
+        public override void Run()
+        {
+            Console.WriteLine("택시가 달린다.");
+        }
+    }
+    class Truck : Car
+    {
+        public override void Run()
+        {
+            Console.WriteLine("트럭이 달린다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Bus bus = new Bus();
+            Taxi taxi = new Taxi();
+            Truck truck = new Truck();
+            bus.Run();
+            taxi.Run();
+            truck.Run();
+            Console.WriteLine("");
+            Car car1 = new Bus();
+            Car car2 = new Taxi();
+            Car car3 = new Truck();
+            car1.Run();
+            car2.Run();
+            car3.Run();
+            Console.WriteLine("");
+            Car car4 = new Bus();
+            car4.Run();
+            car4 = new Taxi();
+            car4.Run();
+            car4 = new Truck();
+            car4.Run();
+        }
+    }
+}
