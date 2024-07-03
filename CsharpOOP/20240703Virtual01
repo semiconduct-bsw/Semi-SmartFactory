@@ -1,0 +1,32 @@
+namespace _20240703_OOPApp03
+{
+    abstract class Shape
+    {
+        public virtual void Draw() { Console.WriteLine("도형을 그리다."); }
+    }
+    class Triangle : Shape
+    {
+        public override void Draw() { Console.WriteLine("삼각형을 그리다."); }
+    }
+    class Rectangle : Shape
+    {
+        public override void Draw() { Console.WriteLine("사각형을 그리다."); }
+    }
+    class Circle : Shape
+    {
+        public override void Draw() { Console.WriteLine("원을 그리다."); }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Triangle tri = new Triangle();
+            Rectangle rect = new Rectangle();
+            Circle cir = new Circle();
+
+            tri.Draw();
+            rect.Draw();
+            cir.Draw();
+        }
+    }
+}
