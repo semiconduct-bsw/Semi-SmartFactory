@@ -1,0 +1,83 @@
+namespace _20240703_Quiz01
+{
+    class Student
+    {
+        // EnrollCourse() - 수강신청하다
+        public void EnrollCourse()
+        {
+            Console.WriteLine("수강신청하다.");
+        }
+        public void EnrollCourse(string subject)
+        {
+            Console.WriteLine($"{subject} 과목을 수강신청하다.");
+        }
+        // DropCourse() - 수강신청 취소하다
+        public void DropCourse()
+        {
+            Console.WriteLine("수강신청 취소하다.");
+        }
+        public void DropCourse(string subject)
+        {
+            Console.WriteLine($"{subject} 과목을 수강신청 취소하다.");
+        }
+        // ViewGrades() - 성적확인하다
+        public void ViewGrade()
+        {
+            Console.WriteLine("성적확인하다.");
+        }
+        public void ViewGrade(string subject)
+        {
+            Console.WriteLine($"{subject} 과목의 성적을 확인하다.");
+        }
+    }
+    class Instructor
+    {
+        // AssignGrade() - 성적인증
+        public void FillGrade()
+        {
+            Console.WriteLine("성적을 기입하다.");
+        }
+        public void FillGrade(string name, int score)
+        {
+            Console.WriteLine($"{name} 학생의 성적은 : {score}점");
+        }
+        // CreateCourse() - 과정 만들기
+        public void CreateCourse()
+        {
+            Console.WriteLine("과정을 만들다.");
+        }
+        public void CreateCourse(string subject, int stuvalue)
+        {
+            Console.WriteLine($"{subject} 과정의 수강자 수는 {stuvalue}명이다.");
+        }
+        // UpdateCourse() - 과정 수정하기
+        public void UpdateCourse()
+        {
+            Console.WriteLine("과정을 수정하다.");
+        }
+        public void UpdateCourse(string name, string name2)
+        {
+            Console.WriteLine($"{name} 과목의 {name2}을 수정하다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Student stu = new Student();
+            stu.EnrollCourse();
+            stu.EnrollCourse("과학");
+            stu.DropCourse();
+            stu.DropCourse("수학");
+            stu.ViewGrade();
+            stu.ViewGrade("영어");
+            Console.WriteLine("");
+            Instructor inst = new Instructor();
+            inst.FillGrade();
+            inst.FillGrade("홍길동", 89);
+            inst.CreateCourse();
+            inst.CreateCourse("과학", 26);
+            inst.UpdateCourse("영어", "영어회화 시간");
+        }
+    }
+}
