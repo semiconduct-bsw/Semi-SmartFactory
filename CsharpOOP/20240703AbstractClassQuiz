@@ -1,0 +1,40 @@
+namespace _20240703_Quiz02
+{
+    abstract class Mammal
+    {
+        public abstract void Eat();
+    }
+    class Lion : Mammal
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("사자가 먹습니다.");
+        }
+    }
+    class Tiger : Mammal
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("호랑이가 먹습니다.");
+        }
+    }
+    class Dog : Mammal
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("개가 먹습니다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Mammal mam1 = new Lion();
+            Mammal mam2 = new Tiger();
+            Mammal mam3 = new Dog();
+            mam1.Eat();
+            mam2.Eat();
+            mam3.Eat();
+        }
+    }
+}
