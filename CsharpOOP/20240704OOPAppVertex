@@ -1,0 +1,60 @@
+namespace _20240704_OOPApp01
+{
+    class Shape
+    {
+        public int vertex;
+        // Default Constructor = 기본 생성자
+        public Shape()
+        {
+            vertex = 0;
+        }
+        public void ShowVertex()
+        {
+            Console.WriteLine(this.vertex);
+        }
+        // Overloading
+        public void ShowVertex(string msg)
+        {
+            Console.WriteLine(msg + "" + vertex);
+        }
+        public void ShowVertex(string msg, string position, int repeat)
+        {
+            Console.WriteLine(msg + "" + vertex + ", 현재 지역은 " + position + ", 반복횟수는 " + repeat);        
+        }
+        // Overriding
+        public virtual void ShowName()
+        {
+            Console.WriteLine("도형입니다.");
+        }
+    }
+    class Triangle : Shape
+    {
+        public Triangle()
+        {
+            vertex = 3;
+        }
+        public override void ShowName()
+        {
+            Console.WriteLine("삼각형입니다.");
+        }
+    }
+    class Circle : Shape
+    {
+        // 꼭짓점이 없으므로 Vertex는 만들 필요조차 없음
+        public override void ShowName()
+        {
+            Console.WriteLine("원입니다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Triangle triangle = new Triangle();
+            triangle.ShowVertex();
+            triangle.ShowVertex("꼭지점의 개수는 : ");
+            triangle.ShowVertex("꼭지점의 개수는 : ", "안동", 3);
+            triangle.ShowName();
+        }
+    }
+}
