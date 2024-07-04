@@ -1,0 +1,37 @@
+namespace _20240703_Practice01
+{
+    class Icecream
+    {
+        public string name;
+        public int price;
+        public int remain;
+        public Icecream()
+        {
+            name = "아이스크림";
+            price = 0;
+            remain = 0;
+        }
+        public void ShowPrice(string name, int price)
+        {
+            Console.WriteLine($"{name}의 가격은 {price}입니다.");
+        }
+        public void ShowRemain(string name, string name2, int remain)
+        {
+            Console.WriteLine($"{name2} 지점의 {name} 잔여량은 {remain}입니다.");
+        }
+        public void ShowAllbuy(string name, int remain, int price)
+        {
+            Console.WriteLine($"{name}({price}원)의 잔여량 {remain}개를 전부 구매 시 {remain * price} 원입니다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Icecream ice = new Icecream();
+            ice.ShowPrice("스크류바", 1100);
+            ice.ShowRemain("스크류바", "안동", 30);
+            ice.ShowAllbuy("스크류바", 30, 1100);
+        }
+    }
+}
