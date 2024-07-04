@@ -1,0 +1,35 @@
+namespace _20240704_PerfectQuiz
+{
+    class PerfectNumber
+    {
+        public void PerfectNum(int num)
+        {
+            int result = 0;
+
+            for (int i = 1; i < num; i++)
+            {
+                if (num % i == 0)
+                {
+                    result += i;
+                }
+            }
+            if (result == num)
+            {
+                Console.WriteLine("yes");
+            }
+            else
+            {
+                Console.WriteLine("no");
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            PerfectNumber pn = new PerfectNumber();
+            pn.PerfectNum(10);
+        }
+    }
+}
+// pn.PerfectNum의 괄호 안에 넣는 수의 완전수 여부를 판단 가능
