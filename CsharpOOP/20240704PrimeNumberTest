@@ -1,0 +1,26 @@
+namespace _20240704_Quiz03
+{
+    class Test
+    {
+        public void Test1()
+        {
+
+            for (int i = 2; i <= 100; i++)
+            {
+                for (int j = 2; j <= i; j++)
+                {
+                    if (j == i) { Console.Write($"{j} "); }
+                    else if (i % j == 0) break;
+                }
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Test test = new Test();
+            test.Test1();
+        }
+    }
+}
