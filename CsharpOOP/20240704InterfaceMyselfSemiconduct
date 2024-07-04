@@ -1,0 +1,35 @@
+namespace _20240704_Quiz02
+{
+    class Semiconduct
+    {
+        public void Semi()
+        {
+            Console.WriteLine("반도체");
+        }
+    }
+    interface IBake
+    {
+        public void Bake();
+    }
+    class Photolithography : Semiconduct, IBake
+    {
+        public void Bake()
+        {
+            Console.WriteLine("Soft Bake : PR이 도포된 Wafer의 Solvent를 증발시킵니다.");
+        }
+        public void Photolitho()
+        {
+            Console.WriteLine("Wafer 위에 PR을 도포합니다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Photolithography photo = new Photolithography();
+            photo.Semi();
+            photo.Bake();
+            photo.Photolitho();
+        }
+    }
+}
