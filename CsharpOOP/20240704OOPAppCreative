@@ -1,0 +1,92 @@
+namespace _20240704_Quiz01
+{
+    class Car
+    {
+        public string name;
+        public int speed;
+        // 생성자
+        public Car()
+        {
+            name = "자동차";
+            speed = 0;
+        }
+        public void ShowSpeed()
+        {
+            Console.WriteLine(this.speed);
+        }
+        // Overloading
+        public void ShowName(string name, int speed)
+        {
+            Console.WriteLine($"이 차의 이름은 {name}이고 평균 속도는 {speed}입니다.");
+        }
+        public void ShowSpeed(int speed, int outdate)
+        {
+            Console.WriteLine($"이 차의 평균 속도는 {speed}이며 출고 가능일까지 {outdate}일 남았습니다.");
+        }
+        public void ShowName(string name, string sell)
+        {
+            Console.WriteLine($"{name}은 {sell} 지점에서 만나보실 수 있습니다.");
+        }
+        // Overriding
+        public virtual void ShowName()
+        {
+            Console.WriteLine("자동차입니다.");
+        }
+    }
+    class Bus : Car
+    {
+        public Bus()
+        {
+            speed = 70;
+        }
+        public override void ShowName()
+        {
+            Console.WriteLine("버스입니다.");
+        }
+    }
+    class Taxi : Car
+    {
+        public Taxi()
+        {
+            speed = 110;
+        }
+        public override void ShowName()
+        {
+            Console.WriteLine("택시입니다.");
+        }
+    }
+    class Truck : Car
+    {
+        public Truck()
+        {
+            speed = 90;
+        }
+        public override void ShowName()
+        {
+            Console.WriteLine("트럭입니다.");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Bus bus = new Bus();
+            bus.ShowName();
+            bus.ShowSpeed();
+
+            Console.WriteLine("");
+
+            Taxi taxi = new Taxi();
+            taxi.ShowName("Taxi", 110);
+            taxi.ShowSpeed(110, 80);
+            taxi.ShowName("Taxi", "안동강변");
+
+            Console.WriteLine("");
+
+            Truck truck = new Truck();
+            truck.ShowName("Truck", 90);
+            truck.ShowSpeed(90, 219);
+            truck.ShowName("Truck", "대구");
+        }
+    }
+}
