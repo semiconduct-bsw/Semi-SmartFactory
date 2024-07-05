@@ -1,0 +1,29 @@
+namespace _20240705_Random04
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rand = new Random();
+            HashSet<int> lottonum = new HashSet<int>();
+
+            while (lottonum.Count < 6)
+            {
+                int num = rand.Next(1, 46);
+                lottonum.Add(num);
+            }
+            // 보너스번호
+            int bonusnum;
+            do
+            {
+                bonusnum = rand.Next(1, 46);
+            } while (lottonum.Contains(bonusnum));
+
+            foreach (int num in lottonum)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine($"\n보너스 번호 : " + bonusnum);
+        }
+    }
+}
