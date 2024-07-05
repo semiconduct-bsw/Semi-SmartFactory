@@ -1,0 +1,27 @@
+namespace _20240705_Random03
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rand = new Random();
+            List<int> lottonum = new List<int>();
+
+            while(lottonum.Count < 7)
+            {
+                int num = rand.Next(1, 46);
+                if (!lottonum.Contains(num)) lottonum.Add(num);
+            }
+            // 보너스 번호 뽑기 0번지 첫 번째 요소를 보너스 번호로 하기
+            int bonusnum = lottonum[0];
+            lottonum.RemoveAt(0);
+            // 로또번호 6개만 정렬
+            lottonum.Sort();
+            foreach (int i in lottonum)
+            {
+                Console.WriteLine(i + " ");
+            }
+            Console.WriteLine($"보너스 번호 : {bonusnum}");
+        }
+    }
+}
