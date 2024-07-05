@@ -1,0 +1,19 @@
+namespace _20240705_Random02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rand = new Random();
+
+            int[] num = new int[7];
+            for (int i = 0; i < 7; i++)
+            {
+                num[i] = rand.Next(1, 46);
+            }
+            Console.Write($"로또번호 : {num[0]} {num[1]} {num[2]} {num[3]} {num[4]} {num[5]}");
+            Console.WriteLine();
+            Console.WriteLine($"보너스번호 : {num[6]}");
+        }
+    }
+}
