@@ -1,0 +1,31 @@
+namespace _20240709_Code68
+{
+    class BankAccount
+    {
+        // 멤버변수 = balance(잔고)
+        private double balance = 0;
+        // 메소드 1. 예금하다
+        public void Deposit(double money)
+        {
+            balance += money;
+        }
+        // 메소드 2. 인출하다
+        public void Withdraw(double money)
+        {
+            balance -= money;
+        }
+        // 메소드 3. 잔고확인
+        public void CheckBalance() { Console.WriteLine($"{balance}원 남았습니다."); }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            BankAccount ba = new BankAccount();
+            ba.Deposit(50000);
+            ba.Withdraw(30000);
+
+            ba.CheckBalance();
+        }
+    }
+}
