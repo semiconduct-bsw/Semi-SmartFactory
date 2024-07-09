@@ -1,0 +1,18 @@
+namespace _20240709_Code65
+{
+    internal class Program
+    {
+        static int num; static string str;
+        static void PrintVars()
+        {
+            int num = 100; string str = "홍길동";
+            Console.WriteLine($"PrintVars : num = {num}, str = {str}");
+        }
+        static void Main(string[] args)
+        {
+            PrintVars();
+
+            Console.WriteLine($"\nMain : num = {num}, str = {str}");
+        }
+    }
+}
