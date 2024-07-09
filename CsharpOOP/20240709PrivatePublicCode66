@@ -1,0 +1,23 @@
+namespace _20240709_Code66
+{
+    class ClassA
+    {
+        private int a;
+        private void PrintOutA() { Console.WriteLine(a); }
+    }
+    class ClassB
+    {
+        public int b;
+        public void PrintOutB() { Console.WriteLine(b); }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ClassA x = new ClassA();
+            // x.PrintOutA(); = 불가능(에러)
+            ClassB y = new ClassB();
+            y.b = 123; y.PrintOutB();
+        }
+    }
+}
