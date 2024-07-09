@@ -1,0 +1,20 @@
+namespace _20240709_Quiz02
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = textBox1.Text + "님! 당신의 학번은 " + textBox2.Text + "입니다!!";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+    }
+}
