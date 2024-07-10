@@ -1,0 +1,20 @@
+namespace _20240710_Indexer01
+{
+    class IndexDemo
+    {
+        private int[] num = new int[5];
+        public int this[int x]
+        {
+            set { num[x] = value; }
+            get { return num[x]; }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            IndexDemo test = new IndexDemo();
+            for(int i = 0; i < 5; i++) {test[i] = i; Console.WriteLine(test[i]); }
+        }
+    }
+}
