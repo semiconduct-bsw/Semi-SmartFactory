@@ -1,0 +1,17 @@
+namespace _20240710_EnumCode99
+{
+    enum Days { Sun=2, Mon, Tue, Wed=8, Thu, Fri, Sat }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine((int)Days.Sun);
+            Console.WriteLine((int)Days.Mon);
+            Console.WriteLine((int)Days.Tue);
+            Console.WriteLine((int)Days.Wed);
+            Console.WriteLine((int)Days.Thu);
+            Console.WriteLine((int)Days.Fri);
+            Console.WriteLine((int)Days.Sat);
+        }
+    }
+}
