@@ -1,6 +1,3 @@
-/* 1) 13의 배수가 7개 들어있는 numbers 라는 배열을 만들기 (for문 활용)
-2) 이름 3개를 입력하여 string 배열 names에 입력하고 배열의 이름을 출력하기 */
-
 namespace _20240710_Quiz01
 {
     internal class Program
@@ -8,9 +5,9 @@ namespace _20240710_Quiz01
         static void ArrayNum()
         {
             int[] numbers = new int[7];
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = i * 13;
+                numbers[i] = (i+1) * 13;
                 Console.Write($"{numbers[i]} ");
             }
         }
