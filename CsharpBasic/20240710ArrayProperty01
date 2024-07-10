@@ -1,0 +1,29 @@
+namespace _20240710ForeachTest02
+{
+    class Student
+    {
+        public int ID { get; set; }
+        public string Name { get; set; } = "홍길동";
+        public string Major { get; set; } = "공통학부";
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Student[] students = new Student[3];
+            Student s1 = new Student();
+            Student s2 = new Student();
+            Student s3 = new Student();
+            students[0] = s1; students[1] = s2; students[2] = s3;
+
+            s1.ID = 1; s1.Name = "이순신"; s1.Major = "컴퓨터공학과";
+            s2.ID = 2; s2.Name = "강감찬"; s2.Major = "기계설계공학과";
+            s3.ID = 2; s3.Name = "배선우"; s3.Major = "응용화학과";
+
+            foreach(Student s in students)
+            {
+                Console.WriteLine(s.Name + "의 학과는 " + s.Major + "입니다.");
+            }
+        }
+    }
+}
