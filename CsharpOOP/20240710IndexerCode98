@@ -1,0 +1,21 @@
+namespace _20240710_IndexerApp02
+{
+    public class ScoreBoard
+    {
+        private int[] scores = new int[5];
+        public int this[int index]
+        {
+            set { scores[index] = value; }
+            get { return scores[index]; }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ScoreBoard sb = new ScoreBoard();
+            sb[0] = 100; sb[1] = 90; sb[2] = 80;
+        }
+    }
+}
+// 출력 생략
