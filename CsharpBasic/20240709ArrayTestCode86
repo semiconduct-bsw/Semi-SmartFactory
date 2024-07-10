@@ -1,0 +1,20 @@
+namespace _20240709_ArrayTest01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 선언과 동시에 초기화
+            int[] studentIDs = new int[5] {1,2,3,4,5};
+            string[] studentNames = new string[3] { "James", "Tom", "Jimmy" };
+
+            int[] evenNums = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                evenNums[i] = i * 2;
+                Console.WriteLine($"You just saved {evenNums[i]}");
+            }
+        }
+    }
+}
