@@ -1,0 +1,30 @@
+namespace _20240711_OOPTest02
+{
+    class Car
+    {
+        public int Speed { get; set; }
+        public string Brand { get; set; }
+
+        public Car() { }
+        public Car(string brand) { Brand = brand; }
+        public Car(int speed, string brand) { Speed = speed; Brand = brand; }
+
+        public void Run() { Console.WriteLine("이것은 차입니다."); }
+        public void Run(string brand) { Console.WriteLine($"이 차는 {brand}입니다."); }
+        public void Run(int speed, string brand)
+        {
+            Console.WriteLine($"{brand}의 평균 속도는 {speed}입니다.");
+        }   
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Car hyun = new Car(80, "현대");
+            Console.WriteLine(hyun.Speed); Console.WriteLine(hyun.Brand);
+
+            Car kia = new Car(100, "기아");
+            Console.WriteLine(kia.Speed); Console.WriteLine(kia.Brand);
+        }
+    }
+}
