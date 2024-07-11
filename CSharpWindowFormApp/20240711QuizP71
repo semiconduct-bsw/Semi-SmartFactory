@@ -1,0 +1,28 @@
+namespace _20240711_QuizP71
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("당신은");
+            if (radioButton1.Checked == true) sb.AppendLine(radioButton1.Text + "성");
+            if (radioButton2.Checked == true) sb.AppendLine(radioButton2.Text + "성");
+
+            sb.AppendLine("\n좋아하는 동물은");
+            if (checkBox1.Checked == true) sb.AppendLine(checkBox1.Text + "\n입니다.");
+            if (checkBox2.Checked == true) sb.AppendLine(checkBox2.Text + "\n입니다.");
+            if (checkBox3.Checked == true) sb.AppendLine(checkBox3.Text + "\n입니다.");
+            if (checkBox4.Checked == true) sb.AppendLine(checkBox4.Text + "\n입니다.");
+            if (checkBox5.Checked == true) sb.AppendLine(checkBox5.Text + "\n입니다.");
+            if (checkBox6.Checked == true) sb.AppendLine(checkBox6.Text + "\n입니다.");
+
+            label1.Text = sb.ToString();
+        }
+    }
+}
