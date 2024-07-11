@@ -1,0 +1,33 @@
+namespace _20240711_QuizP72
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox2.Items.Add("일남");
+            comboBox2.Items.Add("일녀");
+            comboBox2.Items.Add("이남");
+            comboBox2.Items.Add("이녀");
+            comboBox2.Items.Add("삼남");
+            comboBox2.Items.Add("삼녀");
+            comboBox2.Items.Add("막내");
+            comboBox2.SelectedIndex = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(textBox1.Text + "님은 " + comboBox1.Text + "이고\n" +
+                "자녀중에 " + comboBox2.Text + "입니다.", "가족 관계");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+    }
+}
