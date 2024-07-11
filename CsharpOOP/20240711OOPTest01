@@ -1,0 +1,33 @@
+namespace _20240711_OOPTest01
+{
+    class Person // 명사처리, 대문자로 시작
+    {
+        // property = 변수처리와 getter, setter 동시에 처리
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public Person() { }
+        public Person(string name) { Name = name;  }
+        public Person(string name, int age) { Name = name; Age = age; }
+
+        public void EatFood() { Console.WriteLine("밥을 먹습니다."); }
+        public void EatFood(string food) { Console.WriteLine($"{food}를 먹습니다."); }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person tom = new Person();
+            tom.EatFood(); tom.EatFood("오렌지");
+            Console.WriteLine(tom.Name);
+
+            Person sam = new Person("Sam");
+            Console.WriteLine(sam.Name);
+            Console.WriteLine(sam.Age);
+
+            Person tony = new Person("Tony", 24);
+            Console.WriteLine(tony.Name);
+            Console.WriteLine(tony.Age);
+        }
+    }
+}
