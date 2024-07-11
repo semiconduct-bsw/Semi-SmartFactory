@@ -1,0 +1,28 @@
+namespace _20240711_InterfaceTest02
+{
+    interface IMaker { void MadeWhere(); void Warehouse(); }
+    interface IOwner { void WhoOwns(); void Customs(); }
+    class Korea : IMaker, IOwner
+    {
+        public void MadeWhere() { Console.WriteLine("국산입니다."); }
+        public void Warehouse() { Console.WriteLine("상품등록 완료"); }
+        public void WhoOwns() { Console.WriteLine("대한민국 회사 제품입니다."); }
+        public void Customs() { Console.WriteLine("관세 납부 완료"); }
+    }
+    class China : IMaker, IOwner
+    {
+        public void MadeWhere() { Console.WriteLine("중국산입니다."); }
+        public void Warehouse() { Console.WriteLine("상품등록 완료"); }
+        public void WhoOwns() { Console.WriteLine("중국 회사 제품입니다."); }
+        public void Customs() { Console.WriteLine("관세 납부 완료"); }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            IMaker km = new Korea(); IOwner ko = new Korea();
+            km.MadeWhere(); km.Warehouse(); ko.WhoOwns(); ko.Customs();
+        }
+    }
+}
+// 중국 출력 생략
