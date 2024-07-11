@@ -1,0 +1,20 @@
+namespace _20240711_PlusForms01
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCompute_Click(object sender, EventArgs e)
+        {
+            // TextBox = 문자를 다룸을 생각하기
+            int a = int.Parse(tbValue1.Text);
+            int b = int.Parse(tbValue2.Text);
+            int result = a + b;
+
+            tbResult.Text = result.ToString(); // 정수를 문자로
+        }
+    }
+}
