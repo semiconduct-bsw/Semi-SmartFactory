@@ -1,0 +1,22 @@
+namespace _20240711_PlusP88
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int num = int.Parse(textBox1.Text);
+            int sum = 0;
+            for (int i = 1; i <= num; i++)
+            {
+                sum += i;
+                textBox2.Text = textBox2.Text + i + " + ";
+            }
+            textBox2.Text = textBox2.Text + " = " + sum;
+        }
+    }
+}
