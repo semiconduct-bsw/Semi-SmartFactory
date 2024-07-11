@@ -1,0 +1,37 @@
+namespace _20240711_ListBoxP59Practice
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("경상북도");
+            listBox1.Items.Add("경상남도");
+            listBox1.Items.Add("강원도");
+            listBox1.Items.Add("서울특별시");
+            listBox1.Items.Add("인천광역시");
+            listBox1.Items.Add("대전광역시");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(textBox1.Text);
+            textBox1.Text = "";
+            textBox1.Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Add(listBox1.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Remove(listBox2.Text);
+        }
+    }
+}
