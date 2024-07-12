@@ -1,0 +1,21 @@
+namespace _20240712_ListTest01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numberList = new List<int>();
+            int num = 10;
+            for (int i =0; i<5; i++)
+            {
+                numberList.Add(num);
+                num += 10;
+            }
+            numberList.Sort();
+            numberList.Insert(0, 5);
+            numberList.Reserve();
+            
+            foreach (int i in numberList) { Console.Write(i + " "); }
+        }
+    }
+}
