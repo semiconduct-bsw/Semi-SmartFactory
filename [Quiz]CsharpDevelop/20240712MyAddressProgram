@@ -58,7 +58,7 @@ namespace _20240712_MyAddressBook
                         Console.Write("ID를 입력해 주세요 : ");
                         int deleteID = int.Parse(Console.ReadLine());
 
-                        addressBook.RemoveAt(deleteID - 1);
+                        addressBook.Remove(addressBook[deleteID-1]);
                         Console.WriteLine("\n데이터가 정상적으로 삭제되었습니다.");
                         break;
                     case 3:
@@ -75,7 +75,7 @@ namespace _20240712_MyAddressBook
                         Console.Write("ID를 입력해 주세요 : ");
                         int fixID = int.Parse(Console.ReadLine());
 
-                        addressBook.RemoveAt(fixID - 1);
+                        addressBook.Remove(addressBook[fixID - 1]);
 
                         Console.Write("이름을 입력해 주세요 : ");
                         string fixName = Console.ReadLine();
