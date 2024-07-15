@@ -1,0 +1,25 @@
+namespace _20240715_Quiz01
+{
+    class Car
+    {
+        public string brand { get; set; }
+        public int speed { get; set; }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Car> carList = new List<Car>();
+            Car car1 = new Car(); car1.brand = "현대"; car1.speed = 300;
+            Car car2 = new Car(); car2.brand = "기아"; car2.speed = 280;
+            Car car3 = new Car(); car3.brand = "BMW"; car3.speed = 290;
+            carList.Add(car1); carList.Add(car2); carList.Add(car3);
+
+            foreach (Car car in carList)
+            {
+                Console.WriteLine(car.brand);
+                Console.WriteLine($"{car.speed}km"); 
+            }
+        }
+    }
+}
