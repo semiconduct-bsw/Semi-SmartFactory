@@ -1,0 +1,30 @@
+namespace _20240715_WinFormsOddEven
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int num = int.Parse(textBox1.Text);
+            int oddSum = 0; int evenSum = 0;
+
+            for (int i = 1; i <= num; i++)
+            {
+                if (i%2 == 1) 
+                {
+                    oddSum += i; textBox2.AppendText(i + " + ");
+                }
+                else 
+                { 
+                    evenSum += i; textBox3.AppendText(i + " + ");
+                }
+            }
+            textBox2.Text = textBox2.Text + " = " + oddSum;
+            textBox3.Text = textBox3.Text + " = " + evenSum;
+        }
+    }
+}
