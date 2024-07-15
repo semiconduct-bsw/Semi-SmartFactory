@@ -1,0 +1,20 @@
+namespace _20240715_ListObject01
+{
+    class Student
+    {
+        public string Name { get; set; }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Student> list = new List<Student>();
+            Student stu1 = new Student(); stu1.Name = "이순신";
+            Student stu2 = new Student(); stu2.Name = "강감찬";
+            Student stu3 = new Student(); stu3.Name = "을지문덕";
+            list.Add(stu1); list.Add(stu2); list.Add(stu3);
+
+            foreach (Student stu in list) { Console.WriteLine(stu.Name); }
+        }
+    }
+}
