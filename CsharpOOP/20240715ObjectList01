@@ -1,0 +1,31 @@
+namespace _20240715_ObjectList01
+{
+    class Person
+    {
+        public string name;
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person[] people = new Person[2];
+            Person person1 = new Person();
+            person1.name = "홍길동";
+            people[0] = person1;
+            Person person2 = new Person();
+            person2.name = "이순신";
+            people[1] = person2;
+
+            List<Person> list2 = new List<Person>();
+            Person person3 = new Person();
+            person3.name = "홍길동";
+            list2.Add(person3);
+            Person person4 = new Person();
+            person4.name = "이순신";
+            list2.Add(person4);
+
+            foreach (Person person in people) { Console.WriteLine(person.name); }
+            foreach (Person person in list2) { Console.WriteLine(person.name); }
+        }
+    }
+}
