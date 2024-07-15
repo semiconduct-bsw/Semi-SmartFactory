@@ -1,0 +1,30 @@
+namespace _20240715_DateTimeClass01
+{
+    class Format
+    {
+        public void Form()
+        {
+            Console.Write("년도 : ");
+            int year = int.Parse(Console.ReadLine());
+            Console.Write("월 : ");
+            int month = int.Parse(Console.ReadLine());
+            Console.Write("일 : ");
+            int day = int.Parse(Console.ReadLine());
+
+            string time = new DateTime(year, month, day).ToString("yyyy-MM-dd");
+            Console.WriteLine(time);
+            
+            // .Tostring = 문자열로 변화시켜줌
+            string current = DateTime.Now.ToString("yyyy-MM-dd HH:mm:dd");
+            Console.WriteLine($"현재시간 : {current}");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Format format = new Format();
+            format.Form();
+        }
+    }
+}
