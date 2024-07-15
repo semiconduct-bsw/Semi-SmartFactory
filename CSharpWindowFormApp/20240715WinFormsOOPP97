@@ -1,0 +1,28 @@
+namespace _20240715_CurrentTimeApp
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        // 멤버메소드
+        private int number = 0;
+        private DateTime nowTime;
+        public void GetNumber() { number++; }
+        public void OutNumber() { textBox1.AppendText(number + "\r\n"); }
+        public void GetTime() { nowTime = DateTime.Now; }
+        public void OutTime() { textBox2.AppendText(nowTime + "\r\n"); }
+        // Button 클릭 이벤트
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 1; i <= 5; i++)
+            { GetNumber(); OutNumber(); GetTime(); OutTime(); Thread.Sleep(1000); }
+        }
+        // Form 더블클릭
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
