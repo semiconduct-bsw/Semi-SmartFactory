@@ -1,0 +1,58 @@
+namespace _20240715_WinFormsAppP103
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+            int firstnum = int.Parse(textBox1.Text);
+            int lastnum = int.Parse(textBox2.Text);
+            int oddSum = 0;
+
+            for (int i = firstnum; i <= lastnum; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    oddSum += i; textBox3.AppendText(i + " + ");
+                }
+            }
+            textBox3.Text = textBox3.Text + " = " + oddSum;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+            int firstnum = int.Parse(textBox1.Text);
+            int lastnum = int.Parse(textBox2.Text);
+            int evenSum = 0;
+
+            for (int i = firstnum; i <= lastnum; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum += i; textBox3.AppendText(i + " + ");
+                }
+            }
+            textBox3.Text = textBox3.Text + " = " + evenSum;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+            int firstnum = int.Parse(textBox1.Text);
+            int lastnum = int.Parse(textBox2.Text);
+            int totalsum = 0;
+
+            for (int i = firstnum; i <= lastnum; i++)
+            {
+                totalsum += i; textBox3.AppendText(i + " + ");
+            }
+            textBox3.Text = textBox3.Text + " = " + totalsum;
+        }
+    }
+}
