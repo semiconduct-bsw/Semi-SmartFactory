@@ -12,7 +12,7 @@ namespace _20240716_OracleQueryTest01
                 "(HOST=localhost)(PORT=1521)))" +
                 "(CONNECT_DATA=(SERVER=DEDICATED)" +
                 "(SERVICE_NAME=xe)));" +
-                "User Id=scott;Password=tiger;";
+                "User Id=SCOTT;Password=TIGER;";
 
             // 1. 연결 객체 만들기 - 작성 시 위에 Nuget으로 받은 모델이 적용됨을 확인 가능
             OracleConnection conn = new OracleConnection(strConn);
