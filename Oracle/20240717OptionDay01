@@ -1,0 +1,9 @@
+-- OPTION일 구하기 1
+SELECT
+    NEXT_DAY(NEXT_DAY('24/09/01', '목요일'),'목요일')
+FROM DUAL;
+
+-- OPTION일 구하기 2
+SELECT
+    NEXT_DAY(TRUNC(TO_DATE('24/09/01', 'YY/MM/DD'), 'MM') + 6, '목요일')
+FROM DUAL;
