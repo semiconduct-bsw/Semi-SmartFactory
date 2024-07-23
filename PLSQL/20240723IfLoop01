@@ -95,3 +95,12 @@ BEGIN
     END LOOP;
 END;
 /
+
+-- 실습 16-21 FOR LOOP 안에 CONTINUE 사용
+BEGIN
+    FOR I IN 0..4 LOOP
+        CONTINUE WHEN MOD(I, 2) = 1;
+        DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+    END LOOP;
+END;
+/
