@@ -81,7 +81,7 @@ BEGIN
     WHILE I < 10 LOOP
         IF MOD(I, 2) = 1 THEN
             DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
-            I := I + 2;
+            I := I + 1;
         END IF;
     END LOOP;
 END;
