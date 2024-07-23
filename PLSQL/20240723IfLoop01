@@ -73,3 +73,25 @@ BEGIN
     END LOOP;
 END;
 /
+
+-- 실습 P444. 연습문제 1번을 WHILE과 FOR로 각각 작성
+DECLARE
+    I NUMBER := 1;
+BEGIN
+    WHILE I < 10 LOOP
+        IF MOD(I, 2) = 1 THEN
+            DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+            I := I + 2;
+        END IF;
+    END LOOP;
+END;
+/
+
+BEGIN
+    FOR I IN 1..10 LOOP
+        IF MOD(I, 2) = 1 THEN
+          DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+        END IF;
+    END LOOP;
+END;
+/
