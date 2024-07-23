@@ -1,0 +1,30 @@
+-- PL/SQL
+-- 16-1 HELLO PL/SQL 출력
+SET SERVEROUTPUT ON; -- 실행 결과를 화면에 출력
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('HELLO, PL/SQL!');
+END;
+
+-- 한 줄 주석 사용하기
+DECLARE
+    V_EMPNO NUMBER(4) := 7788;
+    V_ENAME VARCHAR2(10);
+    BEGIN
+    V_ENAME := 'SCOTT';
+    -- DBMS_OUTPUT.PUT_LINE('V_EMPNO : ' || V_ENAME);
+    DBMS_OUTPUT.PUT_LINE('V_ENAME : ' || V_ENAME);
+    END;
+/
+
+-- 실습퀴즈
+DECLARE
+    V_DEPTNO NUMBER(4);
+    V_DNAME VARCHAR2(10);
+    V_LOC VARCHAR2(10);
+    BEGIN
+    V_DEPTNO := 10; V_DNAME := '홍길동'; V_LOC := '안동';
+    DBMS_OUTPUT.PUT_LINE('V_DEPTNO : ' || V_DEPTNO);
+    DBMS_OUTPUT.PUT_LINE('V_DNAME : ' || V_DNAME);
+    DBMS_OUTPUT.PUT_LINE('V_LOC : ' || V_LOC);
+    END;
+/
