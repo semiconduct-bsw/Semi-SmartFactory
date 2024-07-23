@@ -1,0 +1,75 @@
+-- 16-11, 13
+DECLARE
+    V_NUMBER NUMBER DEFAULT 13;
+BEGIN
+    IF MOD(V_NUMBER,2) = 1 THEN
+        DBMS_OUTPUT.PUT_LINE('홀수 입니다');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('짝수 입니다');
+    END IF;
+END;
+/
+
+-- 실습 16-15 CASE 조건문
+DECLARE
+    V_SCORE NUMBER DEFAULT 87;
+BEGIN
+    CASE TRUNC(V_SCORE/10)
+        WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('A학점');
+        WHEN 9 THEN DBMS_OUTPUT.PUT_LINE('A학점');
+        WHEN 8 THEN DBMS_OUTPUT.PUT_LINE('B학점');
+        WHEN 7 THEN DBMS_OUTPUT.PUT_LINE('C학점');
+        WHEN 7 THEN DBMS_OUTPUT.PUT_LINE('D학점');
+        ELSE DBMS_OUTPUT.PUT_LINE('F학점');
+    END CASE;
+END;
+/
+
+-- 기본 LOOP 사용하기
+DECLARE
+    V_NUM NUMBER := 0;
+BEGIN
+    LOOP
+      DBMS_OUTPUT.PUT_LINE(V_NUM);
+      V_NUM := V_NUM + 1;
+     EXIT WHEN V_NUM > 4;
+    END LOOP;
+END;
+/
+
+-- 실습 16-18 WHILE LOOP 사용하기
+DECLARE
+    V_NUM NUMBER := 0;
+BEGIN
+    WHILE V_NUM < 4 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 V_NUM : ' || V_NUM);
+        V_NUM := V_NUM + 1;
+    END LOOP;
+END;
+/
+
+-- 실습 16-19 FOR LOOP 사용하기
+BEGIN
+    FOR I IN 0..4 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+    END LOOP;
+END;
+/
+
+-- 실습 P444. 연습문제 1번을 WHILE과 FOR로 각각 작성
+DECLARE
+    I NUMBER := 1;
+BEGIN
+    WHILE I < 10 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+        I := I + 2;
+    END LOOP;
+END;
+/
+
+BEGIN
+    FOR I IN 1..10 LOOP
+        DBMS_OUTPUT.PUT_LINE('현재 I의 값 : ' || I);
+    END LOOP;
+END;
+/
