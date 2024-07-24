@@ -19,3 +19,27 @@ BEGIN
     END LOOP;
 END;
 /
+
+-- Q3) RECORD를 이용한 데이터 삽입
+-- 200번 부서, '스마트팩토리', '구미'
+CREATE TABLE DEPT_RECORD2
+    AS SELECT * FROM DEPT;
+DESC DEPT_RECORD2;
+SELECT * FROM DEPT_RECORD2;
+
+DECLARE
+    TYPE DEPTREC IS RECORD(
+        deptno NUMBER(2) NOT NULL := 99,
+        dname DEPT.DNAME%TYPE,
+        loc DEPT.LOC%TYPE
+    );
+    deptrecord DEPTREC;
+BEGIN
+    deptrecord.deptno := 88;
+    deptrecord.dname := '연구';
+    deptrecord.loc := '구미';
+    
+INSERT INTO DEPT_RECORD2
+VALUES deptrecord;
+END;
+/
