@@ -1,0 +1,20 @@
+-- 실습 19-19 함수 생성하기
+CREATE OR REPLACE FUNCTION func_aftertax(
+    sal IN NUMBER
+)
+RETURN NUMBER
+IS
+    tax NUMBER := 0.05;
+BEGIN
+    RETURN (ROUND(sal-(sal*tax)));
+END func_aftertax;
+/
+
+-- 실습 19-20 PL/SQL에서 함수 사용
+DECLARE
+    aftertax NUMBER;
+BEGIN
+    aftertax := func_aftertax(3000);
+    DBMS_OUTPUT.PUT_LINE('after-tax income : ' || aftertax);
+END;
+/
