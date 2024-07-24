@@ -37,3 +37,24 @@ INSERT INTO DEPT_RECORD
 VALUES dept_rec;
 END;
 /
+
+-- 실습 17-4 RECORD를 사용하여 UPDATE 해보기
+-- 부서 테이블 99번 부서 데이터를 객체 값으로 수정
+DECLARE
+    TYPE REC_DEPT IS RECORD(
+        deptno NUMBER(2) NOT NULL := 99,
+        dname DEPT.DNAME%TYPE,
+        loc DEPT.LOC%TYPE
+    );
+    dept_rec REC_DEPT;
+BEGIN
+    dept_rec.deptno := 50;
+    dept_rec.dname := 'DB';
+    dept_rec.loc := 'ANDONG';
+    
+    UPDATE DEPT_RECORD
+    SET ROW = dept_rec
+    WHERE DEPTNO = 99;
+END;
+/
+SELECT * FROM DEPT_RECORD;
