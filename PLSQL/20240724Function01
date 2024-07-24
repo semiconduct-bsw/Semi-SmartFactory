@@ -18,3 +18,15 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('after-tax income : ' || aftertax);
 END;
 /
+
+-- 실습 19-24 패키지 사용
+CREATE OR REPLACE PACKAGE pkg_example
+IS
+    spec_no NUMBER := 10;
+    FUNCTION func_aftertax(sal NUMBER) RETURN NUMBER;
+END;
+/
+
+-- 사용
+SELECT TEXT FROM USER_SOURCE
+WHERE TYPE = 'PACKAGE';
