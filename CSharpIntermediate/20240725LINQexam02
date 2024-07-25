@@ -1,0 +1,22 @@
+namespace _20240725_LinqExam02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            char[] alphabet = new char[26];
+            char ch = 'A';
+            for (int i = 0; i < 26; i++)
+            {
+                alphabet[i] = ch++;
+            }
+
+            // LINQ
+            var result = from n in alphabet
+                         orderby n descending
+                         select n;
+            foreach (char c in result) { Console.WriteLine(c + " "); }
+            Console.WriteLine();
+        }
+    }
+}
