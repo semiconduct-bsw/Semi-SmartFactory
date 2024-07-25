@@ -52,10 +52,10 @@ namespace _20240725_FileTest02
             string path = "C:\\Temp\\hello.txt";
             string content = "안녕하세요. 인사파일 입니다.";
 
-            StreamWriter writer = new StreamWriter(path);
-            writer.WriteLine(content);
-            writer.Close();
-
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.WriteLine(content);
+            }
             Console.WriteLine("현재 프로그램을 종료합니다.");
         }
     }
