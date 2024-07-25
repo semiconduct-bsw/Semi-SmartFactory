@@ -15,7 +15,7 @@ namespace _20240725_LinqExam02
             var result = from n in alphabet
                          orderby n descending
                          select n;
-            foreach (char c in result) { Console.WriteLine(c + " "); }
+            foreach (char c in result) { Console.Write(c + " "); }
             Console.WriteLine();
         }
     }
