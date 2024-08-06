@@ -1,0 +1,156 @@
+using Oracle.ManagedDataAccess.Client;
+using System;
+using System.Data;
+using System.Windows.Forms;
+
+namespace _20240806_DataGridView01
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private string connectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
+                                          "(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));User Id=SCOTT;Password=TIGER";
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT id, name, hp FROM student";
+                    OracleDataAdapter adapter = new OracleDataAdapter(query, connection);
+
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    dataGridView1.DataSource = dataTable;
+                    // 컬럼 이름 설정
+                    dataGridView1.Columns["id"].HeaderText = "번호";
+                    dataGridView1.Columns["name"].HeaderText = "이름";
+                    dataGridView1.Columns["hp"].HeaderText = "핸드폰번호";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"데이터 로드 중 오류: {ex.Message}");
+                }
+            }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxNo.Text) || string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxHP.Text))
+            {
+                MessageBox.Show("모든 필드를 입력해 주세요.");
+                return;
+            }
+
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "INSERT INTO student (id, name, hp) VALUES (:id, :name, :hp)";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("id", OracleDbType.Int32).Value = int.Parse(textBoxNo.Text);
+                        command.Parameters.Add("name", OracleDbType.Varchar2).Value = textBoxName.Text;
+                        command.Parameters.Add("hp", OracleDbType.Varchar2).Value = textBoxHP.Text;
+
+                        command.ExecuteNonQuery();
+                    }
+                    LoadData();
+                    textBoxNo.Clear();
+                    textBoxName.Clear();
+                    textBoxHP.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"데이터 삽입 중 오류: {ex.Message}");
+                }
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (!int.TryParse(textBoxNo.Text, out int IdNum))
+            {
+                MessageBox.Show("유효한 번호를 입력해 주세요.");
+                return;
+            }
+
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM student WHERE id = :id";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("id", OracleDbType.Int32).Value = IdNum;
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("데이터가 성공적으로 삭제되었습니다.");
+                            LoadData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("삭제할 데이터가 없습니다.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"데이터 삭제 중 오류: {ex.Message}");
+                }
+            }
+            textBoxNo.Clear();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = textBoxSearch.Text;
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT id, name, hp FROM student WHERE name = :name";
+                    using (OracleCommand command = new OracleCommand(query, connection))
+                    {
+                        command.Parameters.Add("name", OracleDbType.Varchar2).Value = searchValue;
+                        using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            if (dataTable.Rows.Count > 0)
+                            {
+                                dataGridView1.DataSource = dataTable;
+                                MessageBox.Show("데이터를 찾았습니다.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("해당 이름을 찾을 수 없습니다.");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"검색 중 오류: {ex.Message}");
+                }
+            }
+        }
+    }
+}
