@@ -1,0 +1,14 @@
+-- FORMS의 DATAGRIDVIEW에 표시할 생산 대기열 테이블
+
+DROP TABLE PRODUCTION_QUEUE;
+CREATE TABLE PRODUCTION_QUEUE (
+    주문번호 int PRIMARY KEY,
+    차종모델 varchar2(40) NOT NULL,
+    차량수량 number(20) NOT NULL,
+    생산대기시작 VARCHAR2(40) NOT NULL
+);
+COMMIT;
+SELECT * FROM PRODUCTION_QUEUE;
+
+INSERT INTO PRODUCTION_QUEUE
+VALUES(1, '테슬라 모델 X', 30, to_char(sysdate,'yyyy.mm.dd hh24:mi'));
