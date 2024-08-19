@@ -1,0 +1,30 @@
+namespace _20240819_ThreadTest02
+{
+    internal class Program
+    {
+        static void Run()
+        {
+            Console.WriteLine("Run 메소드가 동작합니다.");
+        }
+        static void Main(string[] args)
+        {
+            Thread t1 = new Thread(new ThreadStart(Run));
+            t1.Start();
+
+            Thread t2 = new Thread(Run);
+            t2.Start();
+
+            Thread t3 = new Thread(delegate ()
+            {
+                Run();
+            });
+            t3.Start();
+
+            Thread t4 = new Thread(() => Run());
+            t4.Start();
+
+            //익명
+            new Thread(() => Run()).Start();
+        }
+    }
+}
