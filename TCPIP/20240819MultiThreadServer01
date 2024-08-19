@@ -1,0 +1,59 @@
+using System.Data;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+namespace _20240819_MultiThreadServer01
+{
+    internal class Program
+    {
+        static int cnt = 0;
+        private static void serverFunc(object obj)
+        {
+            using (Socket srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            {
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 13000);
+                srvSocket.Bind(endPoint);
+                srvSocket.Listen(50);
+
+                Console.WriteLine("서버 시작...");
+                while (true)
+                {
+                    // Client Socket의 위치를 알게 됨 (Accept로 인해)
+                    Socket cliSocket = srvSocket.Accept();
+                    cnt++;
+
+                    // Client에서 받은 일을 처리 - Thread로 만들어서 처리
+                    // 1대多 를 1대1 로 만들어주는 과정
+                    Thread workThread = new Thread(new ParameterizedThreadStart(workFunc));
+                    workThread.IsBackground = true;
+
+                    workThread.Start(cliSocket);
+                }
+            }
+        }//end of servFunc
+
+        private static void workFunc(object obj)
+        {
+            byte[] recvBytes = new byte[1024];
+            Socket cliSocket = (Socket)obj;
+            int nRecv = cliSocket.Receive(recvBytes);
+
+            string txt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+            Console.WriteLine($"클라이언트 번호 ({cnt}) : {txt}");
+            byte[] sendBytes = Encoding.UTF8.GetBytes("Hello : " + txt);
+            cliSocket.Send(sendBytes);
+            cliSocket.Close();
+        }
+
+        static void Main(string[] args)
+        {
+            Thread serverThread = new Thread(serverFunc);
+            serverThread.IsBackground = true;
+            serverThread.Start();
+
+            serverThread.Join();
+            Console.WriteLine("서버 프로그램을 종료합니다.");
+        }
+    }
+}
