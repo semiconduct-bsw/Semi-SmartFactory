@@ -1,0 +1,40 @@
+namespace _20240819_WorkThread01
+{
+    internal class Program
+    {
+        // 스레드 동기화
+        private static readonly object lockObject = new object();
+        static void DoWork(int index)
+        {
+            // 한 스레드가 끝나야 다음으로 넘어가는 코드
+            //lock (lockObject) 
+            //{
+            //    Console.WriteLine($"스레드 {index} 시작 : 작업을 수행 중...");
+            //    Thread.Sleep(1000);
+            //    Console.WriteLine($"스레드 {index} 완료 : 작업이 끝났습니다.");
+            //}
+
+            // 스레드가 작업을 시작하는 중 다른 스레드가 끝나지 않는 코드
+            lock (lockObject) { Console.WriteLine($"스레드 {index} 시작 : 작업을 수행 중..."); }
+            Thread.Sleep(1000);
+            lock (lockObject) { Console.WriteLine($"스레드 {index} 완료 : 작업이 끝났습니다."); }
+        } 
+        static void Main(string[] args)
+        {
+            // Main Thread -> 일꾼을 부리는 '사장님'
+            int threadCount = 5; // 일꾼의 수
+            Thread[] threads = new Thread[threadCount];
+
+            for (int i = 0; i < threadCount; i++)
+            {
+                int threadIndex = i;
+                threads[i] = new Thread(() => DoWork(threadIndex));
+                threads[i].Start();
+            }
+            // 스레드 기다리기
+            foreach (Thread thread in threads) thread.Join();
+
+            Console.WriteLine("모든 작업이 완료되었습니다.");
+        }
+    }
+}
