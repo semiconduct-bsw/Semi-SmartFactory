@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace _20240820_WinFormTCPClient
+{
+    public partial class Form1 : Form
+    {
+        private Socket clientSocket;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. 서버에 연결
+                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                clientSocket.Connect(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000));
+
+                // 2. 메시지 전송
+                string message = tbFill.Text;
+                byte[] sendBytes = Encoding.UTF8.GetBytes(message);
+                clientSocket.Send(sendBytes);
+
+                // 3. 서버로부터 에코 메시지 수신
+                byte[] recvBytes = new byte[1024];
+                int nRecv = clientSocket.Receive(recvBytes);
+                string receivedText = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+
+                // 4. 수신한 메시지 출력
+                tbBoard.AppendText($"회신 : {receivedText}" + Environment.NewLine);
+
+                // 5. 소켓 종료
+                clientSocket.Close();
+            }
+            catch (Exception ex)
+            {
+                tbBoard.AppendText("오류 발생 : " + ex.Message + Environment.NewLine);
+            }
+        }
+    }
+}
