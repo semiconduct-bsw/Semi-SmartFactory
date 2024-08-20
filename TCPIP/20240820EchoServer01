@@ -1,0 +1,53 @@
+using System.Net.Sockets;
+using System.Net;
+using System.Text;
+
+namespace _20240820_EchoServer01
+{
+    internal class Program
+    {
+        static int cnt = 0;
+        static void Main(string[] args)
+        {
+            Thread serverThread = new Thread(ServerAction);
+            serverThread.IsBackground = true;
+
+            serverThread.Start(); serverThread.Join();
+            Console.WriteLine("Echo Server 메인프로그램 종료!!!");
+        }
+        private static void ServerAction(object obj)
+        {
+            using (Socket srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            {
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 13000);
+
+                srvSocket.Bind(endPoint);
+                srvSocket.Listen(50);
+
+                Console.WriteLine("메아리 서버(Echo Server) 시작...");
+                while (true)
+                {
+                    Socket cliSocket = srvSocket.Accept(); //여기까지 동작은 공통입니다.
+                    cnt++; //클라이언트를 구분하기 위한 카운트 증가
+
+                    //Read,Write 기능은 따로 스레드를 만들어 
+                    Thread workThread = new Thread(new ParameterizedThreadStart(workAction));
+                    workThread.IsBackground = true;
+                    workThread.Start(cliSocket);
+                }
+            }
+        } // end of serveraction
+        private static void workAction(object obj)
+        {
+            byte[] recvBytes = new byte[1024];
+            Socket cliSocket = (Socket)obj;
+            int nRecv = cliSocket.Receive(recvBytes);
+
+            string echotxt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+            Console.WriteLine($"클라이언트로부터 받은 번호와 메세지 ({cnt}) : {echotxt}");
+            byte[] echoMessage = Encoding.UTF8.GetBytes("Echo : " + echotxt);
+            cliSocket.Send(echoMessage);
+            cliSocket.Close();
+        } // end of workaction
+    }
+}
