@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace _20240820_WinFormTCPServer
+{
+    public partial class Form1 : Form
+    {
+        private int cnt = 0;
+        private Socket srvSocket;
+        private Thread serverThread;
+        private bool isRunning = false;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            isRunning = true;
+            serverThread = new Thread(ServerAction);
+            serverThread.IsBackground = true;
+            serverThread.Start();
+            AppendText("메아리 서버(Echo Server) 시작...");
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            isRunning = false;
+            srvSocket?.Close();
+            serverThread?.Join();
+            AppendText("서버가 종료되었습니다.");
+        }
+
+        private void ServerAction()
+        {
+            using (srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+            {
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 13000);
+
+                srvSocket.Bind(endPoint);
+                srvSocket.Listen(50);
+
+                while (isRunning)
+                {
+                    try
+                    {
+                        Socket cliSocket = srvSocket.Accept();
+                        cnt++;
+
+                        Thread workThread = new Thread(workAction);
+                        workThread.IsBackground = true;
+                        workThread.Start(cliSocket);
+                    }
+                    catch (SocketException ex)
+                    {
+                        AppendText("서버 소켓이 닫혔습니다: " + ex.Message);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void workAction(object obj)
+        {
+            Socket cliSocket = (Socket)obj;
+            byte[] recvBytes = new byte[1024];
+
+            try
+            {
+                int nRecv = cliSocket.Receive(recvBytes);
+                string echotxt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+
+                AppendText($"클라이언트로부터 받은 번호와 메세지 ({cnt}) : {echotxt}");
+
+                byte[] echoMessage = Encoding.UTF8.GetBytes("Echo : " + echotxt);
+                cliSocket.Send(echoMessage);
+            }
+            catch (SocketException ex)
+            {
+                AppendText("클라이언트 통신 중 오류 발생: " + ex.Message);
+            }
+            finally
+            {
+                cliSocket.Close();
+            }
+        }
+
+        private void AppendText(string message)
+        {
+            if (tbBoard.InvokeRequired)
+            {
+                tbBoard.Invoke(new Action(() => tbBoard.AppendText(message + Environment.NewLine)));
+            }
+            else
+            {
+                tbBoard.AppendText(message + Environment.NewLine);
+            }
+        }
+    }
+}
