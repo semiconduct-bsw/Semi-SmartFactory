@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _20240820_SimpleTCPClient01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string server = "127.0.0.1";
+            int port = 13000;
+
+            // 서버에 연결
+            TcpClient client = new TcpClient(server, port);
+            NetworkStream stream = client.GetStream();
+
+            // 서버로 메시지 전송
+            string message = "안녕하세요!";
+            byte[] buffer = Encoding.UTF8.GetBytes(message);
+            stream.Write(buffer, 0, buffer.Length);
+            Console.WriteLine($"Sent: {message}");
+
+            // 서버로부터 응답 수신
+            byte[] data = new byte[4096];
+            int bytes = stream.Read(data, 0, data.Length);
+            string recvData = Encoding.UTF8.GetString(data, 0, bytes);
+            Console.WriteLine($"Received: {recvData}");
+
+            // 연결 종료
+            stream.Close();
+            client.Close();
+        }
+    }
+}
