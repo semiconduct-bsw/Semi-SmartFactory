@@ -1,0 +1,65 @@
+using System.Net.Sockets;
+using System.Net;
+using System.Text;
+
+namespace _20240820_EchoClient01
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Thread clientThread = new Thread(clientFunc);
+            clientThread.Start();
+            clientThread.IsBackground = true;
+            clientThread.Join();
+
+            Console.WriteLine("Echo Server가 종료 되었습니다.");
+        }
+        static void clientFunc(object obj)
+        {
+            try
+            {
+                // 1. 소켓 만들기
+                Socket socket = new Socket(AddressFamily.InterNetwork,
+                                           SocketType.Stream,
+                                           ProtocolType.Tcp);
+
+                // 2. 서버에 연결
+                EndPoint serverEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 13000);
+                socket.Connect(serverEP);
+
+                Console.WriteLine("Echo Server에 연결되었습니다. 종료하려면 'exit'를 입력하세요.");
+
+                while (true)
+                {
+                    // 3. 메시지 입력 및 전송
+                    Console.Write("메세지 작성: ");
+                    string userInput = Console.ReadLine(); // 사용자 입력 받기
+
+                    // 'exit' 입력 시 프로그램 종료
+                    if (userInput.ToLower() == "exit")
+                    {
+                        break;
+                    }
+
+                    byte[] echoBuffer = Encoding.UTF8.GetBytes(userInput);
+                    socket.Send(echoBuffer);
+
+                    // 4. 서버로부터 응답 수신
+                    byte[] recvBytes = new byte[1024];
+                    int nRecv = socket.Receive(recvBytes);
+
+                    string echotxt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+                    Console.WriteLine($"{echotxt}");
+                }
+
+                // 5. 소켓 종료
+                socket.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+}
