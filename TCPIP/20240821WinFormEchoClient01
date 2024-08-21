@@ -1,0 +1,84 @@
+using System;
+using System.Net.Sockets;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WinFormEchoClient
+{
+    public partial class EchoClient : Form
+    {
+        private TcpClient client;
+        private NetworkStream stream;
+
+        public EchoClient()
+        {
+            InitializeComponent();
+        }
+
+        private void EchoClient_Load(object sender, EventArgs e)
+        {
+            // 클라이언트가 로드될 때 서버와 연결 시도
+            try
+            {
+                client = new TcpClient("127.0.0.1", 13000);
+                stream = client.GetStream();
+                AppendText("서버에 연결되었습니다.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("서버 연결 실패: " + ex.Message);
+            }
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (client != null && stream != null)
+                {
+                    // tbxFill에 입력된 텍스트를 서버로 전송
+                    string sendMsg = tbxFill.Text;
+                    byte[] data = Encoding.UTF8.GetBytes(sendMsg);
+                    stream.Write(data, 0, data.Length);
+
+                    // 서버로부터 에코 메시지를 받음
+                    byte[] buffer = new byte[2048];
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    string receiveMsg = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // tbxMsg에 서버로부터 받은 메시지 출력
+                    AppendText("서버로부터 받은 메시지: " + receiveMsg);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("메시지 전송 오류: " + ex.Message);
+            }
+        }
+
+        private void AppendText(string text)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action<string>(AppendText), new object[] { text });
+            }
+            else
+            {
+                tbxMsg.AppendText(text + Environment.NewLine);
+            }
+        }
+
+        private void EchoClient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // 클라이언트 종료 시 자원 해제
+            if (stream != null)
+            {
+                stream.Close();
+            }
+            if (client != null)
+            {
+                client.Close();
+            }
+        }
+    }
+}
