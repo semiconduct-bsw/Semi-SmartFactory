@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        p{
+            color:#555;
+            line-height: 200%;
+        }
+        #position{
+            color: red;
+            font-weight: bold;
+        }
+        #feature{
+            color: blue;
+            font-weight: bold;
+        }
+        #loc{
+            color: green;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>산호초</h3>
+    <p>
+        산호초(珊瑚礁)는 <span id="position">산호의 군락</span>이 만든, 
+        탄산 칼슘이 쌓여 만들어진 지형이다.
+        육지와 대양 사이 앞바다에서 석호(潟湖, lagoon)를 끼고 발달한, 
+        띠 모양의 산호초를 <span id="feature">보초(堡礁)</span>라고 한다.
+    </p>
+
+    <p>
+        섬과 산호초의 <span id="loc">위치관계</span>에서 거초·보초·환초로 나뉜다.
+    </p>
+</body>
+</html>
