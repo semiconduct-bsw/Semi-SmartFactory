@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>제목 연습(h1~h6)</title>
+</head>
+<body>
+    <h1>글자 제목(h1)</h1>
+    <h2>글자 제목(h2)</h2>
+    <h3>글자 제목(h3)</h3>
+    <h4>글자 제목(h4)</h4>
+    <h5>글자 제목(h5)</h5>
+    <h6>글자 제목(h6)</h6>
+</body>
+</html>
