@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        파일 첨부 : <input type="file"> 파일 첨부 2MB까지<p></p>
+        Color : <input type="color"><br>
+        DateTime-Local : <input type="datetime-local"><br>
+        <p></p>
+        Month : <input type="month">
+        <p></p>
+        Number : <input type="number">
+        <p></p>
+        Range : <input type="range">
+        <p></p>
+        Time : <input type="time">
+        <p></p>
+        Week : <input type="week">
+    </form>
+</body>
+</html>
