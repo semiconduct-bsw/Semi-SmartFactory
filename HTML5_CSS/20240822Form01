@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <form>
+        이름 : <input type="text"><br>
+        나이 : <input type="text"><P>
+
+        비밀번호 : <input type="password"><br><br>
+        개인정보 : <input type="radio" name="info" checked> 공개
+                 <input type="radio" name="info"> 비공개
+                 <p></p>
+        이메일 : <input type="text">@
+                <SELECT>
+                    <OPTION>선택</OPTION>
+                    <OPTION>naver.com</OPTION>
+                    <OPTION>gmail.com</OPTION>
+                    <OPTION>daum.net</OPTION>
+                    <OPTION>직접입력</OPTION>
+                </SELECT>
+                <p></p>
+        자기소개 : <textarea rows="10" cols="50"></textarea><br>
+
+        <button type="button">검색</button>
+        <button type="submit">확인</button>
+        <button type="reset">다시 쓰기</button>
+    </form>
+</body>
+</html>
