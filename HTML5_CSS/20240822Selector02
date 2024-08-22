@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        p{
+            color:#555;
+            line-height: 200%;
+        }
+        .position{
+            color: red;
+            font-weight: bold;
+        }
+        .feature{
+            color: blue;
+            font-weight: bold;
+        }
+        .loc{
+            color: green;
+            font-style: italic;
+            font-weight: bold;
+        }
+        <!-- 이하 생략 -->
