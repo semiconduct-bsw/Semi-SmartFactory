@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>정의 목록</title>
+</head>
+<body>
+    <h3>계절별 야생화</h3>
+    <dl>
+        <dt>봄꽃</dt>
+        <dd>봄에 꽃이 피는 다년생 식물은 꽃잔디</dd>
+    
+    <dl>
+        <dt>여름꽃</dt>
+        <dd>여름에 꽃이 피는 다년생 식물은 옥잠화, 비비추, 맥문동 등...</dd>
+</body>
+</html>
