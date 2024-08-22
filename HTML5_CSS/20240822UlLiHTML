@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>식물원 관람 주의사항</title>
+</head>
+<body>
+    <h3>식물원 관람 주의사항</h3>
+    <ul>
+        <li>입장권에 게시된 관람요령을 살펴보세요.</li>
+        <li>안내원의 안내를 따르세요.</li>
+        <li>관람지역 이외의 출입을 제한합니다.</li>
+        <li>식물이 삭재된 곳에 들어가지 마세요.</li>
+    </ul>
+</body>
+</html>
