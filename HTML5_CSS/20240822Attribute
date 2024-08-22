@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 태그의 속성</title>
+</head>
+<body>
+    <a href="https://www.naver.com" target="_blank">네이버 사이트로 이동</a>
+    <br>
+    <a href="https://www.youtube.com" target="_self">유튜브로 이동</a>
+    <br>
+    <a href="https://www.daum.net" target="_top">다음 사이트로 이동</a>
+</body>
+</html>
