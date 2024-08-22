@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 01</title>
+    <!-- CSS 코드를 삽입 가능 -->
+    <!-- 나중에 JQuery를 통해 프로그래밍화 -->
+    <style>
+        p {
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>나무의 줄기는 땅 위로 높게 자라고 해마다 굵기가 두꺼워지지만,
+    풀의 줄기는 일 년만 자라고 겨울을 나는 동안 땅 윗부분이 죽는다.
+    </p>
+</body>
+</html>
