@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        h2{
+            text-align: center;
+            text-decoration: underline;
+        }
+        p{
+            line-height: 150%;
+        }
+        h3{
+            color: blue;
+            text-shadow: 3px 3px 5px #555;
+        }
+    </style>
+</head>
+<body>
+    <h2>로즈메리 허브</h2>
+    <p>로즈메리는 남유럽이 원산지이며 1~2미터까지 자라는 여러해살이 풀이다.
+        2~6월에 연보라색, 청자색, 연분홍색, 흰색 꽃이 핀다.
+    </p>
+    <h3>페퍼민트 허브</h3>
+</body>
+</html>
