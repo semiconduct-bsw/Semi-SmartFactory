@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        li{
+            list-style-image: url("../img/dot_blue.gif");
+        }
+    </style>
+</head>
+<body>
+    <h3>★녹색 문화 체험여행</h3>
+    <ul>
+        <li>숲 체험 : 수목원 탐방</li>
+        <li>곤충 체험 : 곤충 체험</li>
+        <li>생태 체험 : 생태 체험</li>
+    </ul>
+</body>
+</html>
