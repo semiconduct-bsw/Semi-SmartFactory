@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background-image: url("../img/narrow_bg.png");
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/bombit_logo.png">
+</body>
+</html>
