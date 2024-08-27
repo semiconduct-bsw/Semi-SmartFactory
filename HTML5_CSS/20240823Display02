@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        #menu{
+            width: 500px; padding: 10;
+            margin: 20px 0 0 40px;
+            background-color: #eee;
+            border: solid 2px #aaa;
+            text-align: center;
+        }
+        #menu li{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>회사소개 |</li>
+        <li>제품소개 |</li>
+        <li>공지사항 |</li>
+        <li>업무제휴 |</li>
+        <li>고객센터 |</li>
+    </ul>
+</body>
+</html>
