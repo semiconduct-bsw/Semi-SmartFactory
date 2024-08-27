@@ -1,0 +1,39 @@
+header{
+    height: 100px; position: relative;
+}
+header #logo{
+    position: absolute;
+    top: 10px; left: 20px;
+}
+header #top_menu{
+    position: absolute;
+    top: 10px; left: 770px;
+}
+header #main_menu{
+    width: 757px; height: 38px;
+    background-image: url("../img/main_menu_bg.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40px; left: 210px;
+}
+header #main_menu li{
+    display: inline-block;
+    margin: 12px 30px 0 50px;
+    font-size: 13px;
+}
+header #main_menu a:link{
+    text-decoration: none;
+    color: #fff;
+}
+header #main_menu a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+header #main_menu a:active{
+    text-decoration: none;
+    color: #00f;
+}
+header #main_menu a:visited{
+    text-decoration: none;
+    color: #fff;
+}
