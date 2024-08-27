@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        h3{
+            margin: 20px 0 0 10px;
+        }
+        ul{
+            margin: 10px 0 0 30px;
+        }
+        li{
+            margin-top: 2px;
+        }
+        #banner{
+            width: 185px; height: 236px;
+            background-image: url("./img/banner_bg.jpg");
+            border: solid 1px #ccc;
+        }
+        #banner img{
+            margin:202px 0 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <h3>PHP 책 소개</h3>
+    <ul>
+        <li>저자 : 황재호</li>
+        <li>출판사 : 한빛미디어</li>
+        <li>가격 : 30,000원</li>
+    </ul>
+    <div id="banner">
+        <img src="./img/buy.png">
+    </div>
+</body>
+</html>
