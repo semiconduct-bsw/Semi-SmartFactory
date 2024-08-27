@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 스타일을 자바에 넣고 싶다면 script로 -->
+    <style>
+
+    </style>
+</head>
+<body>
+    <h2>인라인 블록</h2>
+
+    <h3>1. 인라인 요소</h3>
+        <span>텍스트1</span>
+        <span>텍스트2</span>
+        <span>텍스트3</span>
+        <img src="./img/image1.jpg">
+        <img src="./img/image2.jpg">
+    <h3>2. 블록 요소</h3>
+    <p>이것은 단락입니다.</p>
+    <div>박스 1</div>
+</body>
+</html>
