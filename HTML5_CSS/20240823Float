@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div{
+            width: 150px; height: 80px;
+            border: solid 2px #00f;
+            margin-top: 2px;
+        }
+        #box_a{
+            float: left;
+        }
+        #box_b{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="box_a">박스 A</div>
+    <div id="box_b">박스 B</div>
+</body>
+</html>
