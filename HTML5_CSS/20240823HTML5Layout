@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .clear {
+            clear: both;
+        }
+        aside{
+            width: 175px; height: 398px;
+            float: left; padding: 2px;
+            border: solid 2px #f00;
+        }
+        nav{
+            height: 150px;
+            border: solid 2px #00f;
+            margin-bottom: 50px;
+            margin: 2px;
+        }
+        header{
+            width: 800px; height: 60px;
+            border: solid 2px #f00;
+            margin: 2px;
+        }
+        main{
+            width: 618px; height: 400px;
+            margin-left: 2px;
+            float: left;
+            border: solid 2px #00f;
+        }
+        section{
+            width: 500px; height: 150px;
+            margin: 2px;
+            border: solid 2px #0f0;
+        }
+        footer{
+            width: 800px; height: 90px;
+            border: solid 2px #f00;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!--------------- Header --------------->
+    <header>상단 헤더</header>
+    <aside>좌측
+        <nav>메뉴</nav>
+    </aside>
+    <main>메인 콘텐츠
+        <section>콘텐츠 1</section>
+        <section>콘텐츠 2</section>
+    </main>
+    <div class="clear"></div>
+    <!--------------- footer --------------->
+    <footer>하단 헤더(푸터)</footer>
+</body>
+</html>
