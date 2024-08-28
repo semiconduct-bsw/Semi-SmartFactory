@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "UseViewBag";
+}
+
+<h1>UseViewBag</h1>
+
+<p></p>
+<span>첫 번째 데이터 : </span><b>@ViewBag.data1 </b>
+<br />
+<span>두 번째 데이터 : </span><b>@ViewBag.data2 </b>
+<br />
+<span>세 번째 데이터 : </span><b>@ViewBag.data3 </b>
+<br />
+
+@{
+    foreach(var item in ViewBag.data4)
+    {
+        <h3>@item</h3>
+    }
+}
+
+@{
+    foreach(var item in ViewBag.data5)
+    {
+        <h3>@item</h3>
+    }
+}
