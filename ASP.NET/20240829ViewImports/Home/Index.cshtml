@@ -1,0 +1,19 @@
+﻿@model IEnumerable<_20240829_ViewImportsTest.Models.Student>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Main Page</h1>
+
+    @{
+        foreach (var item in Model)
+        {
+            <p>@item.ID</p>
+            <p>@item.Name</p>
+            <p>@item.HP</p>
+        }
+    }
+
+</div>
