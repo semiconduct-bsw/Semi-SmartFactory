@@ -1,0 +1,31 @@
+﻿@* @model _20240829_StronTypedView01.Models.Employee *@
+
+@* @model List<_20240829_StronTypedView01.Models.Employee> *@
+
+@model IEnumerable<_20240829_StronTypedView01.Models.Employee>
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<hr />
+
+	@* <h3>@Model.EmpID</h3>
+	<h3>@Model.EmpName</h3>
+	<h3>@Model.Designation</h3>
+	<h3>@Model.Salary</h3> *@
+
+	<hr />
+	@{
+		foreach (var item in Model)
+		{
+			@item.EmpID<br />
+			@item.EmpName<br />
+			@item.Designation<br />
+			@item.Salary<br />
+		}
+	}
+
+</div>
