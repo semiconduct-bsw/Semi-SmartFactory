@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Output";
+
+    // TempData["temp01"]를 배열로 캐스팅
+    string[] foods = TempData["temp01"] as string[];
+}
+
+<h1>Output</h1>
+
+<div class="text-center">
+    @{
+        if (foods != null)
+        {
+            foreach (var food in foods)
+            {
+                <h3>@food</h3> <!-- TempData의 데이터를 ViewBag과 동일한 형식으로 출력 -->
+            }
+        }
+        else
+        {
+            <h3>음식 목록이 없습니다.</h3>
+        }
+
+        foreach (var item in ViewBag.data1)
+        {
+            <h3>@item</h3> <!-- ViewBag 데이터를 출력 -->
+        }
+    }
+</div>
