@@ -1,0 +1,18 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">안녕하세요!</h1>
+</div>
+
+<div>
+    <form method="post" action="~/">
+        ID : <input asp-for="ID" class="form-control" value="1"/> <br />
+        이름 : <input asp-for="Name" class="form-control" value="홍길동" /> <br />
+        전화번호 : <input asp-for="HP" class="form-control" value="010-1111-1111" /> <br />
+        <input type="submit" value="OK" class="btn btn-outline-primary" />
+    </form>
+</div>
