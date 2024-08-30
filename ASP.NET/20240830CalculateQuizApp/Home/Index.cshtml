@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>두 정수를 넣어주세요.</h1>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label for="number1">숫자 1:</label>
+        <input type="number" id="number1" name="number1" required />
+    </div>
+    <div>
+        <label for="number2">숫자 2:</label>
+        <input type="number" id="number2" name="number2" required />
+    </div>
+    <div>
+        <button type="submit">사칙연산</button>
+    </div>
+</form>
+
+@if (ViewBag.Result1 != null)
+{
+    <div>
+        <p>sum: @ViewBag.Result1</p>
+        <p>difference: @ViewBag.Result2</p>
+        <p>product: @ViewBag.Result3</p>
+        <p>divide: @(ViewBag.Result4 == double.NaN ? "undefined" : ViewBag.Result4)</p>
+    </div>
+}
