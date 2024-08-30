@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: skyblue;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .container {
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Main Page</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>연락 주세요 : <a href="mailto:your-email@example.com">chem1bsw.fac@gmail.com</a></p>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
