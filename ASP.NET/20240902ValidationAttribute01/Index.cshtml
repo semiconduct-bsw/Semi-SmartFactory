@@ -1,0 +1,24 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<div>
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <!-------------------- 이름 --------------------->
+        <label asp-for="Name">이름 : </label>
+        <input asp-for="Name" class="form-control" placeholder="이름을 넣어주세요" />
+        <span asp-validation-for="Name" style="color:red"></span> <br />
+        <!-------------------- 나이 --------------------->
+        <label asp-for="Age">나이 : </label>
+        <input asp-for="Age" class="form-control" placeholder="나이를 입력해주세요" />
+        <span asp-validation-for="Age" style="color:red"></span>
+        <!-------------------- 패스워드 --------------------->
+        <!-------------------- 버튼 --------------------->
+        <input type="submit" value="OK" class="btn btn-outline-primary" />
+    </form>
+</div>
