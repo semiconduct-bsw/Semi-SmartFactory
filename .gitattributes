@@ -1,4 +1,2 @@
 *.sql linguist-detectable=true
 *.cshtml linguist-detectable=true
-
-*.scss linguist-detectable=false
