@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "업로드 성공";
+}
+
+<div class="text-center">
+    <h1 class="display-4">업로드가 성공적으로 완료되었습니다.</h1>
+    <p>아래에서 원본 이미지와 개선된 이미지를 보실 수 있습니다.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Original Image</h3>
+            <img src="@ViewBag.OriginalImagePath" alt="Original Image" class="img-fluid" />
+        </div>
+        <div class="col-md-6">
+            <h3>Enhanced Image</h3>
+            <img src="@ViewBag.EnhancedImagePath" alt="Enhanced Image" class="img-fluid" />
+        </div>
+    </div>
+</div>
