@@ -10,3 +10,13 @@ data = [
 
 df = pd.DataFrame(data)
 print(df)
+
+# 딕셔너리로 생성하기
+data = {
+    '학번' : ['1000', '1001', '1002', '1003', '1004', '1005'],
+    '이름' : [ 'Steve', 'James', 'Doyeon', 'Jane', 'Pilwoong', 'Tony'],
+    '점수': [90.72, 78.09, 98.43, 64.19, 81.30, 99.14]
+    }
+
+df = pd.DataFrame(data)
+print(df)
