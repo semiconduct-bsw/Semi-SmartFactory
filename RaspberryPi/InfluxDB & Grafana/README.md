@@ -19,3 +19,49 @@
 단계 4. InfluxDB 서버 시작
 
 - pi@raspberrypi:~ $ sudo systemctl start influxdb
+
+
+### Grafana 설치
+
+단계 1
+
+- $ sudo mkdir -p /etc/apt/keyrings/
+- $ wget q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
+
+단계 2
+
+- $ echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+
+단계 3
+
+- $ sudo apt-get update
+- $ sudo apt-get install -y grafana
+
+단계 4
+
+- $ sudo /bin/systemctl enable grafanaserver
+
+단계 5
+
+- $ sudo /bin/systemctl start grafanaserver
+
+단계 6
+
+- 브라우저를 열어서 http://<서버 IP 주소>:3000에 접속
+
+### 데이터베이스 설정
+
+1. URL – http://localhost:8086 or http://라즈베리 파이 IP address:8086
+
+- Grafana 서버 입장에서 접속 해야 하는 InfluxDB 서버는 어디에 있는가? localhost
+
+2. InfluxDB 설정
+
+- Database – db_riatech
+    - 이전 단계에서 생성한 데이터베이스 이름
+- User/Password
+    - InfluxDB의 db_riatech에 접속할 수 있는 사용자 정보
+
+3. Save & Test
+
+- Save & Test 버튼 클릭 후 아래와 같은 녹색창(Data source is working)이 나오면 정상
