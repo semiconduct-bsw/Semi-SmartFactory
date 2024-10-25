@@ -1,11 +1,6 @@
 using OpenCvSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DefectPlate
+namespace _20241025_DefectCarPlate
 {
     internal class Program
     {
@@ -43,7 +38,7 @@ namespace DefectPlate
                 // 소벨 알고리즘으로 경계(에지 검출한다)
                 Cv2.Sobel(gray, sobel, MatType.CV_8U, 1, 0, 3);
 
-                // 이진화를 수행
+                // 이진화를 수행한다.
                 Cv2.Threshold(sobel, thImg, 120, 255, ThresholdTypes.Binary);
 
                 // 닫음 연산 - 팽창 후 침식을 통해 경계를 명확히 분리한다
@@ -51,9 +46,15 @@ namespace DefectPlate
 
                 // 결과 표시
                 Cv2.ImShow("image", image);
+                Cv2.MoveWindow("image", 0, 0);
+
                 Cv2.ImShow("이진 영상", thImg);
+                Cv2.MoveWindow("이진 영상", 500, 0);
+
                 Cv2.ImShow("닫음 연산", morph);
-                Cv2.WaitKey(2000);
+                Cv2.MoveWindow("닫음 연산", 1000, 0);
+
+                Cv2.WaitKey(2000); 
             }
         }
     }
