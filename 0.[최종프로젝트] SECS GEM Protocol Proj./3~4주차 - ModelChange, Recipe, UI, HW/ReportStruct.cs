@@ -121,5 +121,13 @@ namespace _20241112_CIMPCGUI01.Reports
             public string ProcID;
         }
         #endregion
+
+        public struct ModelListReport
+        {
+            public string ReportID { get; set; }
+            public string Model0 { get; set; }
+            public string Model1 { get; set; }
+            public string Model2 { get; set; }
+        }
     }
 }
